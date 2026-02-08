@@ -59,7 +59,7 @@ Manage pantry items, track expiration dates, generate shopping lists.
 Start with [specification/FCP.md](specification/FCP.md) to understand the protocol.
 
 ### 🧪 Try the Reference Implementation
-See [Food-Context-Protocol/server](https://github.com/Food-Context-Protocol/server) for a Python implementation.
+See [Food-Context-Protocol/fcp-gemini-server](https://github.com/Food-Context-Protocol/fcp-gemini-server) for a Python implementation.
 
 ### 📦 Use the SDKs
 ```bash
@@ -96,7 +96,7 @@ FCP uses a meritocratic governance model. See [GOVERNANCE.md](GOVERNANCE.md) for
 ## Implementations
 
 ### Official
-- [Python (Reference)](https://github.com/Food-Context-Protocol/server) - FastAPI + MCP stdio
+- [Python (Reference)](https://github.com/Food-Context-Protocol/fcp-gemini-server) - FastAPI + MCP stdio
 
 ### Community
 _Coming soon - implement FCP in your language!_
