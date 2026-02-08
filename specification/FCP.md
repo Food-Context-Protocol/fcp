@@ -2,7 +2,7 @@
 
 **Version**: 2026-02-04
 **Status**: Draft
-**Authors**: FoodLog Team
+**Authors**: Food Context Protocol Contributors
 
 ---
 
@@ -179,7 +179,7 @@ For mobile/web apps, FCP provides a REST API.
 
 #### Base URL
 ```
-https://api.foodlog.app/v1
+https://api.fcp.dev/v1
 ```
 
 #### Authentication
@@ -703,7 +703,7 @@ Common data types used across FCP tools and agents.
 ```json
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fcp.foodlog.app/schema/meal.json",
+  "$id": "https://fcp.fcp.dev/schema/meal.json",
   "title": "Meal",
   "type": "object",
   "properties": {
@@ -764,7 +764,7 @@ Common data types used across FCP tools and agents.
 
 ```json
 {
-  "$id": "https://fcp.foodlog.app/schema/nutrition.json",
+  "$id": "https://fcp.fcp.dev/schema/nutrition.json",
   "title": "Nutrition",
   "type": "object",
   "properties": {
@@ -784,7 +784,7 @@ Common data types used across FCP tools and agents.
 
 ```json
 {
-  "$id": "https://fcp.foodlog.app/schema/ingredient.json",
+  "$id": "https://fcp.fcp.dev/schema/ingredient.json",
   "title": "Ingredient",
   "type": "object",
   "properties": {
@@ -801,7 +801,7 @@ Common data types used across FCP tools and agents.
 
 ```json
 {
-  "$id": "https://fcp.foodlog.app/schema/recipe.json",
+  "$id": "https://fcp.fcp.dev/schema/recipe.json",
   "title": "Recipe",
   "type": "object",
   "properties": {
@@ -833,7 +833,7 @@ Common data types used across FCP tools and agents.
 
 ```json
 {
-  "$id": "https://fcp.foodlog.app/schema/taste-profile.json",
+  "$id": "https://fcp.fcp.dev/schema/taste-profile.json",
   "title": "TasteProfile",
   "type": "object",
   "properties": {
