@@ -62,13 +62,8 @@ Start with [specification/FCP.md](specification/FCP.md) to understand the protoc
 See [Food-Context-Protocol/fcp-gemini-server](https://github.com/Food-Context-Protocol/fcp-gemini-server) for a Python implementation.
 
 ### 📦 Use the SDKs
-```bash
-# Python
-pip install fcp-sdk
-
-# TypeScript
-npm install @fcp/sdk
-```
+- [Python SDK](https://github.com/Food-Context-Protocol/python-sdk)
+- [TypeScript SDK](https://github.com/Food-Context-Protocol/typescript-sdk)
 
 ### 🔧 Implement Your Own
 Follow the [specification](specification/FCP.md) to build FCP in any language.
@@ -76,8 +71,7 @@ Follow the [specification](specification/FCP.md) to build FCP in any language.
 ## Repository Structure
 
 - **`specification/`** - Protocol specification documents
-- **`schemas/`** - JSON schemas for all capabilities
-- **`docs/`** - MkDocs documentation source
+- **`docs/`** - Documentation and assets
 
 ## Contributing
 
