@@ -114,7 +114,7 @@ cd fcp
 ### Install MkDocs (for Documentation)
 
 ```bash
-pip install mkdocs mkdocs-material
+uv add mkdocs mkdocs-material
 ```
 
 ### Serve Documentation Locally
