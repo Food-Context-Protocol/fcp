@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fcp.fcp.dev/schema/tools.json",
+  "title": "FCP Tools",
+  "description": "Complete tool definitions for the Food Context Protocol",
+  "tools": [
+    {
+      "name": "add_meal",
+      "description": "Create a new food log entry.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {"type": "string", "description": "User identifier"},
+          "dish_name": {"type": "string", "description": "Name of the dish"},
+          "venue": {"type": "string", "description": "Restaurant or location"},
+          "notes": {"type": "string", "description": "User notes"},
+          "image_url": {"type": "string", "format": "uri", "description": "Food image URL"},
+          "created_at": {"type": "string", "format": "date-time"}
+        },
+        "required": ["user_id", "dish_name"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "dish_name": {"type": "string"},
+          "venue": {"type": "string"},
+          "notes": {"type": "string"},
+          "image_url": {"type": "string"},
+          "created_at": {"type": "string", "format": "date-time"},
+          "nutrition": {"$ref": "./types.json#/definitions/Nutrition"},
+          "cuisine": {"type": "string"},
+          "ingredients": {"type": "array", "items": {"$ref": "./types.json#/definitions/Ingredient"}}
+        }
+      }
+    },
+    {
+      "name": "analyze_meal",
+      "description": "Analyze a food image using Gemini multimodal.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "image_url": {"type": "string", "format": "uri"}
+        },
+        "required": ["image_url"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "dish_name": {"type": "string"},
+          "cuisine": {"type": "string"},
+          "cooking_method": {"type": "string"},
+          "ingredients": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "amount": {"type": "string"},
+                "is_visible": {"type": "boolean"}
+              }
+            }
+          },
+          "nutrition": {"$ref": "./types.json#/definitions/Nutrition"},
+          "allergens": {"type": "array", "items": {"type": "string"}},
+          "dietary_tags": {"type": "array", "items": {"type": "string"}},
+          "spice_level": {"type": "integer", "minimum": 0, "maximum": 5},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    {
+      "name": "find_nearby_food",
+      "description": "Find restaurants near a location using Google Maps.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "latitude": {"type": "number"},
+          "longitude": {"type": "number"},
+          "radius_meters": {"type": "integer", "default": 1000},
+          "food_type": {"type": "string"}
+        },
+        "required": ["latitude", "longitude"]
+      }
+    },
+    {
+      "name": "check_food_recalls",
+      "description": "Check for active food recalls using Gemini grounding.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "food_name": {"type": "string"},
+          "brand": {"type": "string"}
+        },
+        "required": ["food_name"]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "has_recall": {"type": "boolean"},
+          "recalls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {"type": "string"},
+                "reason": {"type": "string"},
+                "severity": {"enum": ["low", "medium", "high", "critical"]},
+                "date": {"type": "string", "format": "date"},
+                "source_url": {"type": "string", "format": "uri"}
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "generate_social_post",
+      "description": "Generate platform-optimized social media post.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "meal": {"$ref": "./types.json#/definitions/Meal"},
+          "platform": {"enum": ["instagram", "twitter", "facebook", "tiktok"]},
+          "style": {"enum": ["casual", "professional", "humorous", "informative"]}
+        },
+        "required": ["meal"]
+      }
+    }
+  ]
+}

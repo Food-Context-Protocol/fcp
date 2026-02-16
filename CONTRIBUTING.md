@@ -57,7 +57,7 @@ See [GOVERNANCE.md](GOVERNANCE.md) for our full Code of Conduct.
 
 3. **Submit Pull Request**
    - Update `specification/FCP.md`
-   - Update relevant JSON schemas in `schemas/`
+   - Update relevant JSON schemas in `specification/schema/`
    - Add/update documentation in `docs/`
    - Include migration guide if breaking
 
@@ -129,7 +129,7 @@ mkdocs serve
 ```
 fcp/
 ├── specification/          # Protocol spec (canonical)
-├── schemas/                # JSON schemas for capabilities
+├── specification/schema/   # JSON schemas for capabilities
 ├── docs/                   # MkDocs documentation
 ├── GOVERNANCE.md           # Governance model
 ├── CONTRIBUTING.md         # This file

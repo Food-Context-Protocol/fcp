@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fcp.fcp.dev/schema/types.json",
+  "title": "FCP Data Types",
+  "definitions": {
+    "Meal": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://fcp.fcp.dev/schema/meal.json",
+      "title": "Meal",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique meal identifier"
+        },
+        "user_id": {
+          "type": "string",
+          "description": "Owner user ID"
+        },
+        "dish_name": {
+          "type": "string",
+          "description": "Name of the dish"
+        },
+        "cuisine": {
+          "type": "string",
+          "description": "Cuisine type (e.g., Italian, Japanese)"
+        },
+        "venue": {
+          "type": "string",
+          "description": "Restaurant or location name"
+        },
+        "notes": {
+          "type": "string",
+          "description": "User notes about the meal"
+        },
+        "image_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to meal image"
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/Ingredient"}
+        },
+        "nutrition": {
+          "$ref": "#/definitions/Nutrition"
+        },
+        "allergens": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "dietary_tags": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["id", "user_id", "dish_name", "created_at"]
+    },
+    "Nutrition": {
+      "$id": "https://fcp.fcp.dev/schema/nutrition.json",
+      "title": "Nutrition",
+      "type": "object",
+      "properties": {
+        "calories": {"type": "number", "minimum": 0},
+        "protein_g": {"type": "number", "minimum": 0},
+        "carbs_g": {"type": "number", "minimum": 0},
+        "fat_g": {"type": "number", "minimum": 0},
+        "fiber_g": {"type": "number", "minimum": 0},
+        "sugar_g": {"type": "number", "minimum": 0},
+        "sodium_mg": {"type": "number", "minimum": 0},
+        "serving_size": {"type": "string"}
+      }
+    },
+    "Ingredient": {
+      "$id": "https://fcp.fcp.dev/schema/ingredient.json",
+      "title": "Ingredient",
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "amount": {"type": "string"},
+        "unit": {"type": "string"},
+        "is_visible": {"type": "boolean", "default": true}
+      },
+      "required": ["name"]
+    },
+    "Recipe": {
+      "$id": "https://fcp.fcp.dev/schema/recipe.json",
+      "title": "Recipe",
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "cuisine": {"type": "string"},
+        "prep_time_minutes": {"type": "integer"},
+        "cook_time_minutes": {"type": "integer"},
+        "servings": {"type": "integer"},
+        "ingredients": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/Ingredient"}
+        },
+        "instructions": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "nutrition_per_serving": {"$ref": "#/definitions/Nutrition"},
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "image_url": {"type": "string", "format": "uri"},
+        "source_url": {"type": "string", "format": "uri"}
+      },
+      "required": ["name", "ingredients", "instructions"]
+    },
+    "TasteProfile": {
+      "$id": "https://fcp.fcp.dev/schema/taste-profile.json",
+      "title": "TasteProfile",
+      "type": "object",
+      "properties": {
+        "user_id": {"type": "string"},
+        "favorite_cuisines": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "favorite_dishes": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "disliked_ingredients": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "dietary_restrictions": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "spice_tolerance": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "price_preference": {
+          "enum": ["budget", "moderate", "upscale", "any"]
+        }
+      }
+    }
+  }
+}

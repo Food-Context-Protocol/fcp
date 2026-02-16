@@ -1,0 +1,16 @@
+{
+  "name": "FreshnessAgent",
+  "purpose": "Generate personalized daily content to keep the app feeling alive.",
+  "workflow": [
+    "Analyze user's recent activity",
+    "Generate contextual content (tips, insights, achievements)",
+    "Include seasonal and location-aware suggestions"
+  ],
+  "content_types": [
+    "Daily insights",
+    "Streak celebrations",
+    "Food tips of the day",
+    "Seasonal reminders",
+    "Achievement unlocks"
+  ]
+}

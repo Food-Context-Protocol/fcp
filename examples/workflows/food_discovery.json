@@ -1,0 +1,16 @@
+{
+  "name": "FoodDiscoveryAgent",
+  "purpose": "Discover restaurants and recipes based on user taste profile.",
+  "workflow": [
+    "Load user taste profile",
+    "Query Gemini with Google Search grounding",
+    "Filter and rank recommendations",
+    "Return personalized suggestions"
+  ],
+  "tools": [
+    "get_taste_profile",
+    "find_nearby_food",
+    "discover_restaurants",
+    "discover_recipes"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "ContentGeneratorAgent",
+  "purpose": "Create shareable content from food logs.",
+  "workflow": [
+    "Aggregate food log data",
+    "Generate content for specified format",
+    "Optimize for target platform"
+  ],
+  "content_formats": [
+    "Social media posts",
+    "Blog articles",
+    "Weekly digests",
+    "Monthly reviews",
+    "Recipe cards"
+  ]
+}

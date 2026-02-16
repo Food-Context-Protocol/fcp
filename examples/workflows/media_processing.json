@@ -1,0 +1,34 @@
+{
+  "name": "MediaProcessingAgent",
+  "purpose": "Process food photos from camera roll or batch uploads.",
+  "workflow": [
+    "Filter images to identify food photos",
+    "Analyze each food image",
+    "Extract nutrition and ingredients",
+    "Optionally create food log entries"
+  ],
+  "tools": [
+    "detect_food_in_image",
+    "analyze_meal",
+    "identify_ingredients",
+    "extract_nutrition",
+    "add_meal"
+  ],
+  "input_model": {
+    "name": "PhotoBatchRequest",
+    "schema": {
+      "image_urls": "list[str]",
+      "auto_log": "bool = False"
+    }
+  },
+  "output_model": {
+    "name": "PhotoBatchResult",
+    "schema": {
+      "total_processed": "int",
+      "food_detected": "int",
+      "non_food": "int",
+      "results": "list[PhotoAnalysis]",
+      "auto_logged": "bool"
+    }
+  }
+}
