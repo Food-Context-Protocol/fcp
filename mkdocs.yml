@@ -1,0 +1,28 @@
+site_name: Food Context Protocol
+site_description: An open standard enabling interoperability between AI agents and food data providers.
+site_author: Food Context Protocol Contributors
+repo_url: https://github.com/Food-Context-Protocol/fcp
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Specification: specification.md
+  - Contributing: contributing.md
+  - Governance: governance.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - tables
