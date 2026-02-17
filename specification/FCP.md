@@ -464,8 +464,8 @@ Find restaurants near a location using Google Maps.
 {
   "type": "object",
   "properties": {
-    "latitude": {"type": "number"},
-    "longitude": {"type": "number"},
+    "latitude": {"type": "number", "minimum": -90, "maximum": 90},
+    "longitude": {"type": "number", "minimum": -180, "maximum": 180},
     "radius_meters": {"type": "integer", "default": 1000},
     "food_type": {"type": "string"}
   },
