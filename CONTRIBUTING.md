@@ -21,6 +21,7 @@ See [GOVERNANCE.md](GOVERNANCE.md) for our full Code of Conduct.
    - Protocol version
 
 **Template:**
+
 ```markdown
 **Description:** Brief summary
 
@@ -80,6 +81,7 @@ See [GOVERNANCE.md](GOVERNANCE.md) for our full Code of Conduct.
 5. Submit pull request
 
 **Documentation Standards:**
+
 - Use clear, concise language
 - Include code examples
 - Test all examples work
@@ -126,7 +128,7 @@ mkdocs serve
 
 ### Repository Structure
 
-```
+```text
 fcp/
 ├── specification/          # Protocol spec (canonical)
 ├── schemas/                # JSON schemas for capabilities
@@ -199,6 +201,7 @@ Does this break existing implementations? If yes, provide migration guide.
 ### Example Quality
 
 All examples MUST:
+
 - Be valid according to schemas
 - Include realistic data
 - Demonstrate common use cases
@@ -214,6 +217,7 @@ All examples MUST:
 ## Recognition
 
 Contributors are recognized in:
+
 - README.md (significant contributions)
 - Release notes
 - Annual contributor highlights

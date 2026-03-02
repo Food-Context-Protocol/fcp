@@ -10,33 +10,41 @@
 ## Roles
 
 ### Contributors
+
 Anyone who signs the Contributor License Agreement (CLA) can contribute code, documentation, or specification changes.
 
 **How to become a contributor:**
+
 - Sign the CLA (automated via GitHub bot)
 - Submit pull requests or participate in discussions
 - All contributions are welcome
 
 ### Maintainers
+
 Developers who review pull requests, maintain releases, and manage documentation.
 
 **Current Maintainers:**
+
 - @jwegis (Founding Maintainer)
 
 **How to become a maintainer:**
+
 - Sustained contributions over 3+ months
 - Demonstrated understanding of protocol design
 - Nominated by existing maintainers
 - Approved by Technical Council
 
 ### Technical Council (TC)
+
 Responsible for:
+
 - Technical decisions and architecture
 - Specification changes
 - Roadmap planning
 - Maintainer selection
 
 **Current Members:**
+
 - @jwegis (Founding Member)
 
 **Future Expansion:** TC will grow to 5-7 members based on sustained contributions to the protocol.
@@ -44,6 +52,7 @@ Responsible for:
 **Meetings:** Monthly, with agendas published 24 hours in advance and minutes within one week.
 
 ### Governing Council (GC)
+
 Oversees protocol health, adoption strategy, and long-term vision.
 
 **Current Status:** Self-governed during incubation phase

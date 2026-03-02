@@ -1,0 +1,5 @@
+# Ignore URLs that require authentication or are placeholders
+https://github.com/Food-Context-Protocol/fcp/discussions
+https://github.com/Food-Context-Protocol/fcp/issues
+# Ignore mailto links
+security@fcp.dev
