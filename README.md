@@ -20,15 +20,19 @@ The Food Context Protocol (FCP) addresses fragmentation in food AI systems by en
 ## Why FCP?
 
 ### Standardization
+
 Currently, each food application rebuilds nutrition analysis, recipe search, and safety checks from scratch. FCP provides a common language for food intelligence.
 
 ### Modularity
+
 FCP defines composable capabilities (nutrition, recipes, safety, inventory) that applications can adopt incrementally rather than requiring all-or-nothing integration.
 
 ### Agentic Commerce Support
+
 Built for AI agents acting on behalf of users to analyze meals, plan nutrition, and manage food safely—powered by modern LLMs like Gemini 3.
 
 ### Protocol-First
+
 Dual transport (MCP stdio + REST HTTP) ensures FCP works with CLI tools, web apps, mobile apps, and AI platforms like Claude Desktop.
 
 ## Key Features
@@ -42,30 +46,38 @@ Dual transport (MCP stdio + REST HTTP) ensures FCP works with CLI tools, web app
 ## Core Capabilities
 
 ### Nutrition Analysis
+
 Analyze food photos for nutrition data, detect allergens, extract meal composition.
 
 ### Recipe Management
+
 Search recipes, scale ingredients, extract from videos, suggest substitutions.
 
 ### Food Safety
+
 Real-time FDA recall alerts grounded in Google Search with cited sources.
 
 ### Inventory Tracking
+
 Manage pantry items, track expiration dates, generate shopping lists.
 
 ## Getting Started
 
 ### 📖 Read the Specification
+
 Start with [specification/FCP.md](specification/FCP.md) to understand the protocol.
 
 ### 🧪 Try the Reference Implementation
+
 See [Food-Context-Protocol/fcp-gemini-server](https://github.com/Food-Context-Protocol/fcp-gemini-server) for a Python implementation.
 
 ### 📦 Use the SDKs
+
 - [Python SDK](https://github.com/Food-Context-Protocol/python-sdk)
 - [TypeScript SDK](https://github.com/Food-Context-Protocol/typescript-sdk)
 
 ### 🔧 Implement Your Own
+
 Follow the [specification](specification/FCP.md) to build FCP in any language.
 
 ## Repository Structure
@@ -76,6 +88,7 @@ Follow the [specification](specification/FCP.md) to build FCP in any language.
 ## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+
 - How to propose specification changes
 - Discussion process
 - Pull request guidelines
@@ -83,6 +96,7 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
 ## Governance
 
 FCP uses a meritocratic governance model. See [GOVERNANCE.md](GOVERNANCE.md) for details on:
+
 - Technical Council
 - Decision-making process
 - Contribution pathways
@@ -90,9 +104,11 @@ FCP uses a meritocratic governance model. See [GOVERNANCE.md](GOVERNANCE.md) for
 ## Implementations
 
 ### Official
+
 - [Python (Reference)](https://github.com/Food-Context-Protocol/fcp-gemini-server) - FastAPI + MCP stdio
 
 ### Community
+
 _Coming soon - implement FCP in your language!_
 
 ## Roadmap

@@ -1,0 +1,22 @@
+config:
+  # Allow long lines (specs have long URLs and tables)
+  MD013: false
+  # Allow HTML in markdown (needed for badges, images with attributes)
+  MD033: false
+  # Allow duplicate headings in different sections
+  MD024:
+    siblings_only: true
+  # Allow trailing punctuation in headings (e.g., "Questions?")
+  MD026: false
+  # Allow bare URLs for email addresses (common in governance/security docs)
+  MD034: false
+  # Table column style is too strict for compact spec tables
+  MD060: false
+  # First line heading rule conflicts with centered HTML headers
+  MD041: false
+  # Allow headings not starting at column 1 (centered headings)
+  MD023: false
+
+globs:
+  - "**/*.md"
+  - "!node_modules"

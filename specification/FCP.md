@@ -62,7 +62,7 @@ FCP uses the [Model Context Protocol (MCP)](https://modelcontextprotocol.io) as 
 
 ### 2.1 System Overview
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                       FCP Clients                            │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
@@ -119,16 +119,21 @@ FCP uses the [Model Context Protocol (MCP)](https://modelcontextprotocol.io) as 
 ### 2.2 Core Components
 
 #### Agents
+
 Autonomous workflows that orchestrate multiple tools to accomplish complex tasks. Each agent is implemented using Pydantic AI for type safety.
 
 #### Tools
+
 Individual operations that perform specific food-related tasks. Tools are the building blocks that agents compose.
 
 #### Resources
+
 Data stores that tools read from and write to. The primary resource is a Firebase Firestore database.
 
 #### Services
+
 External API integrations that provide capabilities to tools:
+
 - **Gemini API**: LLM for analysis, generation, and reasoning
 - **Maps API**: Location-based restaurant discovery
 - **USDA API**: Nutrition database lookups
@@ -143,6 +148,7 @@ External API integrations that provide capabilities to tools:
 FCP uses JSON-RPC 2.0 over stdio for MCP compatibility.
 
 #### Request Format
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -158,6 +164,7 @@ FCP uses JSON-RPC 2.0 over stdio for MCP compatibility.
 ```
 
 #### Response Format
+
 ```json
 {
   "jsonrpc": "2.0",
@@ -178,18 +185,22 @@ FCP uses JSON-RPC 2.0 over stdio for MCP compatibility.
 For mobile/web apps, FCP provides a REST API.
 
 #### Base URL
-```
+
+```text
 https://api.fcp.dev/v1
 ```
 
 #### Authentication
+
 Firebase ID tokens in the Authorization header:
-```
+
+```text
 Authorization: Bearer <firebase-id-token>
 ```
 
 #### Endpoint Pattern
-```
+
+```text
 POST /tools/{tool_name}
 Content-Type: application/json
 
@@ -225,7 +236,8 @@ Transform food images and text into structured data.
 | `analyze_agentic_vision` | Multi-step visual analysis | Agentic Vision |
 
 **Example Flow**:
-```
+
+```text
 Image → Gemini Vision → Structured JSON
                      ↓
 {
@@ -248,7 +260,8 @@ Find restaurants, recipes, and ingredients based on preferences.
 | `discover_seasonal` | Seasonal ingredients | Grounding |
 
 **Example Flow**:
-```
+
+```text
 User Taste Profile + Location
          ↓
     Gemini Grounding (Google Search)
@@ -353,9 +366,11 @@ Tools are organized by domain. Each tool has a unique name, description, input s
 ### 5.1 Meal Management (CRUD)
 
 #### `add_meal`
+
 Create a new food log entry.
 
 **Input Schema**:
+
 ```json
 {
   "type": "object",
@@ -372,6 +387,7 @@ Create a new food log entry.
 ```
 
 **Output Schema**:
+
 ```json
 {
   "type": "object",
@@ -390,26 +406,33 @@ Create a new food log entry.
 ```
 
 #### `get_meal`
+
 Retrieve a single meal by ID.
 
 #### `get_meals`
+
 List meals with pagination and filtering.
 
 #### `update_meal`
+
 Update meal fields.
 
 #### `delete_meal`
+
 Delete a meal entry.
 
 #### `donate_meal`
+
 Mark a meal as donated (for food sharing).
 
 ### 5.2 Food Analysis
 
 #### `analyze_meal`
+
 Analyze a food image using Gemini multimodal.
 
 **Input Schema**:
+
 ```json
 {
   "type": "object",
@@ -421,6 +444,7 @@ Analyze a food image using Gemini multimodal.
 ```
 
 **Output Schema**:
+
 ```json
 {
   "type": "object",
@@ -449,17 +473,21 @@ Analyze a food image using Gemini multimodal.
 ```
 
 #### `analyze_meal_v2`
+
 Advanced analysis using Gemini function calling for structured extraction.
 
 #### `analyze_with_thinking`
+
 Analysis with extended thinking for complex dishes.
 
 ### 5.3 Discovery
 
 #### `find_nearby_food`
+
 Find restaurants near a location using Google Maps.
 
 **Input Schema**:
+
 ```json
 {
   "type": "object",
@@ -474,45 +502,57 @@ Find restaurants near a location using Google Maps.
 ```
 
 #### `discover_restaurants`
+
 Get taste-matched restaurant recommendations using Gemini grounding.
 
 #### `discover_recipes`
+
 Find recipes based on available ingredients.
 
 #### `discover_seasonal`
+
 Discover seasonal ingredients for a location.
 
 ### 5.4 Recipe Management
 
 #### `save_recipe`
+
 Save a recipe to the user's library.
 
 #### `extract_recipe_from_media`
+
 Extract recipe from an image or text using Gemini vision.
 
 #### `scale_recipe`
+
 Adjust recipe quantities for different serving sizes (uses Gemini code execution).
 
 #### `standardize_recipe`
+
 Normalize recipe format to schema.org Recipe schema.
 
 ### 5.5 Inventory Management
 
 #### `add_to_pantry`
+
 Add ingredient to user's pantry.
 
 #### `check_pantry_expiry`
+
 Check for expiring ingredients.
 
 #### `suggest_recipe_from_pantry`
+
 Suggest recipes based on pantry contents.
 
 ### 5.6 Safety
 
 #### `check_food_recalls`
+
 Check for active food recalls using Gemini grounding.
 
 **Input Schema**:
+
 ```json
 {
   "type": "object",
@@ -525,6 +565,7 @@ Check for active food recalls using Gemini grounding.
 ```
 
 **Output Schema**:
+
 ```json
 {
   "type": "object",
@@ -548,17 +589,21 @@ Check for active food recalls using Gemini grounding.
 ```
 
 #### `check_allergen_interactions`
+
 Check for drug-food interactions.
 
 #### `check_dietary_compatibility`
+
 Verify dish compatibility with dietary restrictions.
 
 ### 5.7 Content Generation
 
 #### `generate_social_post`
+
 Generate platform-optimized social media post.
 
 **Input Schema**:
+
 ```json
 {
   "type": "object",
@@ -572,36 +617,45 @@ Generate platform-optimized social media post.
 ```
 
 #### `generate_blog_post`
+
 Generate SEO-optimized blog content.
 
 #### `generate_food_story`
+
 Generate narrative food stories.
 
 ### 5.8 Voice
 
 #### `process_voice_meal_log`
+
 Convert voice input to meal log entry using Gemini Live API.
 
 #### `voice_food_query`
+
 Answer food-related questions via voice.
 
 ### 5.9 Analytics
 
 #### `get_nutrition_stats`
+
 Calculate nutrition statistics over a time period.
 
 #### `analyze_eating_patterns`
+
 Identify eating patterns and habits.
 
 #### `generate_research_report`
+
 Generate comprehensive food research report.
 
 ### 5.10 External Integrations
 
 #### `lookup_product`
+
 Look up product by barcode using Open Food Facts.
 
 #### `enrich_nutrition`
+
 Enrich meal with USDA nutrition data.
 
 ---
@@ -615,12 +669,14 @@ Agents are autonomous workflows that orchestrate multiple tools. Each agent is i
 **Purpose**: Process food photos from camera roll or batch uploads.
 
 **Workflow**:
+
 1. Filter images to identify food photos
 2. Analyze each food image
 3. Extract nutrition and ingredients
 4. Optionally create food log entries
 
 **Tools Used**:
+
 - `detect_food_in_image`
 - `analyze_meal`
 - `identify_ingredients`
@@ -628,6 +684,7 @@ Agents are autonomous workflows that orchestrate multiple tools. Each agent is i
 - `add_meal`
 
 **Input Model**:
+
 ```python
 class PhotoBatchRequest(BaseModel):
     image_urls: list[str]
@@ -635,6 +692,7 @@ class PhotoBatchRequest(BaseModel):
 ```
 
 **Output Model**:
+
 ```python
 class PhotoBatchResult(BaseModel):
     total_processed: int
@@ -649,12 +707,14 @@ class PhotoBatchResult(BaseModel):
 **Purpose**: Discover restaurants and recipes based on user taste profile.
 
 **Workflow**:
+
 1. Load user taste profile
 2. Query Gemini with Google Search grounding
 3. Filter and rank recommendations
 4. Return personalized suggestions
 
 **Tools Used**:
+
 - `get_taste_profile`
 - `find_nearby_food`
 - `discover_restaurants`
@@ -665,11 +725,13 @@ class PhotoBatchResult(BaseModel):
 **Purpose**: Generate personalized daily content to keep the app feeling alive.
 
 **Workflow**:
+
 1. Analyze user's recent activity
 2. Generate contextual content (tips, insights, achievements)
 3. Include seasonal and location-aware suggestions
 
 **Content Types**:
+
 - Daily insights
 - Streak celebrations
 - Food tips of the day
@@ -681,11 +743,13 @@ class PhotoBatchResult(BaseModel):
 **Purpose**: Create shareable content from food logs.
 
 **Workflow**:
+
 1. Aggregate food log data
 2. Generate content for specified format
 3. Optimize for target platform
 
 **Content Formats**:
+
 - Social media posts
 - Blog articles
 - Weekly digests
@@ -913,7 +977,8 @@ FCP uses Firebase Authentication for user identity.
 **Token Format**: Firebase ID Token (JWT)
 
 **Header**:
-```
+
+```text
 Authorization: Bearer eyJhbGciOiJSUzI1NiIs...
 ```
 
